@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <script type="text/javascript" src="../0_package/react.development.js"></script>
+    <script type="text/javascript" src="../0_package/react-dom.development.js"></script>
+    <script type="text/javascript" src="../0_package/babel.min.js"></script>
+    <script type="text/babel">
+        // @solution
+        // 定义函数式组件
+        function FC() {
+            return <div>函数式组件</div>
+        }
+        // 渲染组件到页面
+        ReactDOM.render(<FC />, document.getElementById('d1'))
+
+        // @description
+        // render(...)的作用
+        /* 
+            执行了ReactDOM.render(<MyComponent/>.......之后，发生了什么？
+                1.React解析组件标签，找到了MyComponent组件。
+                2.发现组件是使用函数定义的，随后调用该函数，将返回的虚拟DOM转为真实DOM，随后呈现在页面中。
+        */
+
+        
+        // @solution
+        // 定义类式组件
+        class CC extends React.Component {
+            render() {
+                return <div>类式组件</div>
+            }
+        }
+        // 渲染组件到页面
+        ReactDOM.render(<CC />, document.getElementById('d2'))
+
+        // @description
+        // render(...)的作用
+        /*
+            执行了ReactDOM.render(<MyComponent/>.......之后，发生了什么？
+                1.React解析组件标签，找到了MyComponent组件。
+                2.发现组件是使用类定义的，随后new出来该类的实例，并通过该实例调用到原型上的render方法。
+                3.将render返回的虚拟DOM转为真实DOM，随后呈现在页面中。
+        */
+    </script>
+</body>
+
+</html>

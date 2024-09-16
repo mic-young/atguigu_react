@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <script type="text/javascript" src="../0_package/react.development.js"></script>
+    <script type="text/javascript" src="../0_package/react-dom.development.js"></script>
+    <script type="text/javascript" src="../0_package/babel.min.js"></script>
+    <script type="text/babel">
+        // @solution
+        // jsx 创建虚拟dom
+        const vd = (<h1>jsx_create</h1>)
+        // 渲染虚拟dom
+        ReactDOM.render(vd, document.getElementById("d1"))
+
+
+        // @solution
+        // js创建虚拟dom
+        const vd2 = React.createElement('h1', { id: "h11" }, React.
+        createElement('span', {}, 'js_create'))
+        // 渲染虚拟dom
+        ReactDOM.render(vd2, document.getElementById('d2'))
+
+
+        // @description
+        // 虚拟dom
+        /*
+            关于虚拟DOM：
+                        1.本质是Object类型的对象（一般对象）
+                        2.虚拟DOM比较“轻”，真实DOM比较“重”，因为虚拟DOM是React内部在用，无需真实DOM上那么多的属性。
+                        3.虚拟DOM最终会被React转化为真实DOM，呈现在页面上。
+        */
+    </script>
+</body>
+
+</html>
